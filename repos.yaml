@@ -8,14 +8,14 @@ repos:
   # branch is an regex matching pull requests by base branch
   # (the branch the pull request is getting merged into).
   # By default, all branches are matched
-#  branch: /.*/
+  branch: /.*/
 #
 #  # apply_requirements sets the Apply Requirements for all repos that match.
-#  apply_requirements: [approved, mergeable]
+  apply_requirements: [approved, mergeable]
 #
 #  # workflow sets the workflow for all repos that match.
 #  # This workflow must be defined in the workflows section.
-#  workflow: custom
+  workflow: terragrunt
 
   # allowed_overrides specifies which keys can be overridden by this repo in
   # its atlantis.yaml file.
@@ -23,12 +23,12 @@ repos:
 
 #  # allowed_workflows specifies which workflows the repos that match 
 #  # are allowed to select.
-#  allowed_workflows: [custom]
+  allowed_workflows: [terragrunt]
 #
 #  # allow_custom_workflows defines whether this repo can define its own
 #  # workflows. If false (default), the repo can only use server-side defined
 #  # workflows.
-#  allow_custom_workflows: true
+  allow_custom_workflows: true
   
 #  # pre_workflow_hooks defines arbitrary list of scripts to execute before workflow execution.
 #  pre_workflow_hooks: 
