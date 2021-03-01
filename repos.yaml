@@ -38,16 +38,17 @@ repos:
 #- id: github.com/myorg/specific-repo
 #
 ## workflows lists server-side custom workflows
-#workflows:
-#  custom:
-#    plan:
-#      steps:
-#      - run: my-custom-command arg1 arg2
-#      - init
-#      - plan:
-#          extra_args: ["-lock", "false"]
-#      - run: my-custom-command arg1 arg2
-#    apply:
-#      steps:
-#      - run: echo hi
-#      - apply
+workflows:
+  terragrunt:
+    plan:
+      steps:
+      - env:
+          name: TERRAGRUNT_TFPATH
+          command: 'echo "terraform${ATLANTIS_TERRAFORM_VERSION}"'
+      - run: terragrunt plan -no-color -out $PLANFILE
+    apply:
+      steps:
+      - env:
+          name: TERRAGRUNT_TFPATH
+          command: 'echo "terraform${ATLANTIS_TERRAFORM_VERSION}"'
+      - run: terragrunt apply -no-color $PLANFILE
