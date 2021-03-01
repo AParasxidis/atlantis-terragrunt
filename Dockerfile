@@ -20,5 +20,4 @@ RUN set -ex \
 
 COPY repos.yaml /etc/atlantis/repos.yaml
 
-ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["server","--repo-config="etc/atlantis/repos.yaml""]
+CMD ["server","--repo-config=etc/atlantis/repos.yaml"]
