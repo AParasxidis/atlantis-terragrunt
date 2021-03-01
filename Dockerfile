@@ -17,3 +17,8 @@ RUN set -ex \
     && curl -fSL "https://github.com/gruntwork-io/terragrunt/releases/download/${TERRAGRUNT_VERSION}/terragrunt_linux_amd64" \
         -o ${LOCAL_DIR}/bin/terragrunt \
     && chmod +x ${LOCAL_DIR}/bin/terragrunt
+
+COPY repos.yaml /etc/atlantis/repos.yaml
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["server","--repo-config="etc/atlantis/repos.yaml""]
