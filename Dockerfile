@@ -14,4 +14,4 @@ COPY --chown=atlantis:atlantis repos.yaml /home/atlantis/repos.yaml
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-CMD ["server","--repo-config=home/atlantis/repos.yaml"]
+CMD ["server","--repo-config=/home/atlantis/repos.yaml"]
