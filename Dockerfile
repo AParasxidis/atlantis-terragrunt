@@ -9,7 +9,7 @@ RUN set -ex \
     && curl -fSL "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -o /tmp/terraform.zip \
     && unzip /tmp/terraform.zip -d /tmp \
     && rm -f ${LOCAL_DIR}/bin/terraform \
-    && mv /tmp/terraform ${LOCAL_DIR}/bin/terraform \
+    && mv /tmp/terraform ${LOCAL_DIR}/bin/terraform0.14.2 \
     && rm -f /tmp/terraform*
 
 ARG TERRAGRUNT_VERSION="v0.23.40"
